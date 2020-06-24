@@ -30,6 +30,8 @@ then
     ln -s "$CODE_PATH/emacs-lisp-local/init-local.el" \
         "$emacs_d/lisp/init-local.el"
     ln -s "$CODE_PATH/emacs-lisp-local" "$emacs_d/lisp-local"
+    ln -s "$CODE_PATH/emacs-capture-templates" "$emacs_d/lisp-local/templates"
+    ln -s "$CODE_PATH/emacs-jade-mode" "$emacs_d/lisp-local/jade-mode"
     ln -s "$CODE_PATH/emacs-themes" "$emacs_d/themes"
 
     cd -
