@@ -17,8 +17,8 @@ dotfiles_setup () {
     dotfiles_git_config
 
     # let these scripts handle state - re-run or not:
-    setup_vim="$VIMCONFIG_PATH/setup_vim.sh"
-    setup_emacs="$EMACSCONFIG_PATH/setup_emacs.sh"
+    setup_vim="$VIMCONFIG_PATH/bin/setup_vim.sh"
+    setup_emacs="$EMACSCONFIG_PATH/bin/setup_emacs.sh"
     [ -f "$setup_vim" ] && "$setup_vim" 
     [ -f "$setup_emacs" ] && "$setup_emacs" 
 
@@ -145,7 +145,7 @@ _dotfiles_link_binfiles () {
     for d in ${bin_files[@]}
     do
         src="$DOTFILES_PATH/${d}"
-        dest="$HOME/${d#.sh}"
+        dest="$HOME/${d/.sh/}"
 
         _dotfiles_link_item "$src" "$dest"
     done
@@ -172,8 +172,7 @@ _dotfiles_link_files () {
         "lib/dotfiles-utils.lib.sh"
         "lib/Linux.lib.sh"
         "ssh/config"
-        "vscode/keybindings.json"
-        "vscode/settings.json"
+        "vscode"
         "wgetrc"
         "zsh_prompt"
         "zshrc"
@@ -199,7 +198,6 @@ _dotfiles_create_home_folders () {
         "code"
         ".lib"
         ".ssh"
-        ".vscode"
     )
 
     for d in ${dotfiles_folders[@]}
