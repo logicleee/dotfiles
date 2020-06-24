@@ -1,26 +1,25 @@
 * lee's dotfiles
-  CLI my way. (Use at your own risk)
+  cli my way. 
+  (Use at your own risk)
 
-** `templates/`
-   contiains what you would typically expect to see as ~/.
+** ~dotfiles/templates/~
+   This folder contiains what you would typically expect to see in your home folder as ~~/.<file or folder>~
 
-** `templates/bin/setup-dotfiles.sh`
-   copies templates/ to local/ and links each ~/.file to local/file 
+** ~dotfiles/templates/bin/setup-dotfiles.sh~
+   This script copies the ~templates/~ folder to ~local/~ and links each ~loca/file~ basically as ~~/.<file>~
 
 * Installation
 ** Clone this repository
-   #+BEGIN_SRC sh
-    git clone
-   #+END_SRC
-
-** Run setup
+** Run ~dotfiles-setup.sh~
    #+BEGIN_SRC sh
     cd dotfiles && ./template/bin/dotfiles-setup.sh
    #+END_SRC
 * Extending
+  The ~dotfiles/local~ folder is in ~.gitignore~ :
+  You can move it somewhere else (like Dropbox) or create a ~git submodule~ there.
 
-* Resources and Inspiration
-  [[https://github.com/mathiasbynens/dotfiles][mathiasbynens/dotfiles]]
-  [[https://github.com/aaronbieber/dotfiles][aaronbieber/dotfiles]]
-  [[https://github.com/saxenanurag/kennethreitzdotfiles][saxenanurag/kennethreitzdotfiles]]
+* Some resources and sources of inspiration
+  - [[https://github.com/mathiasbynens/dotfiles][mathiasbynens/dotfiles]]
+  - [[https://github.com/aaronbieber/dotfiles][aaronbieber/dotfiles]]
+  - [[https://github.com/saxenanurag/kennethreitzdotfiles][saxenanurag/kennethreitzdotfiles]]
 
