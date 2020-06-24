@@ -32,7 +32,7 @@ _dotfiles_check_for_repo () {
 }
 
 _dotfiles_setup_base () {
-    local URL='http://'
+    local URL='https://github.com/logicleee/dotfiles.git'
 
     # Prevent from re-running over and over
     local runonce_flag="$HOME/.run-once.dotfiles_setup_base"
