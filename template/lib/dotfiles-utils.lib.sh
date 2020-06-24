@@ -17,8 +17,8 @@ dotfiles_setup () {
     dotfiles_git_config
 
     # let these scripts handle state - re-run or not:
-    setup_vim="$VIMCONFIG_PATH/bin/setup_vim.sh"
-    setup_emacs="$EMACSCONFIG_PATH/bin/setup_emacs.sh"
+    setup_vim="$VIMCONFIG_PATH/bin/setup-dotfiles-vim"
+    setup_emacs="$EMACSCONFIG_PATH/bin/setup-dotfiles-emacs"
     [ -f "$setup_vim" ] && "$setup_vim" 
     [ -f "$setup_emacs" ] && "$setup_emacs" 
 
