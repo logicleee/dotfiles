@@ -1,3 +1,6 @@
+code_pathfile="$HOME/.VAR_CODE_PATH"
+dotfiles_base_pathfile="$HOME/.VAR_DOTFILES_BASE_PATH"
+
 export PATH="$HOME/bin:$PATH"
 export PATH="${PATH}:/usr/local/texlive/2018basic/bin/x86_64-darwin"
 
@@ -14,5 +17,7 @@ export PATH="${PATH}:${HOME}/Library/Python/3.7/bin"
 ##############################################
 
 export CODE_PATH="$(cat $code_pathfile)"
-export DOTFILES_PATH="$(cat $dotfiles_pathfile)"
+export DOTFILES_BASE_PATH="$(cat $dotfiles_base_pathfile)"
+export DOTFILES_PATH="$DOTFILES_BASE_PATH/local"
+export DOTFILES_TEMPLATE_PATH="$DOTFILES_BASE_PATH/template"
 

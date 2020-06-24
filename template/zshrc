@@ -1,20 +1,20 @@
 #!/bin/zsh
 
 code_pathfile="$HOME/.VAR_CODE_PATH"
-dotfiles_pathfile="$HOME/.VAR_DOTFILES_PATH"
+dotfiles_base_pathfile="$HOME/.VAR_DOTFILES_BASE_PATH"
 platform="$(uname)"
 
-if [ ! -f "$code_pathfile" ] || [ ! -f "$dotfiles_pathfile" ]
+if [ ! -f "$code_pathfile" ] || [ ! -f "$dotfiles_base_pathfile" ]
 then
-    echo "ERROR: Missing either $code_pathfile OR $dotfiles_pathfile"
+    echo "ERROR: Missing either $code_pathfile OR $dotfiles_base_pathfile"
     echo "Halting ${BASH_SOURCE[0]}"
     return 1
 fi
 
 source "$HOME/.exports"
-source "$HOME/lib/common.lib.sh"
-source "$HOME/lib/common-zsh.lib.sh"
-source "$HOME/lib/${platform}.lib.sh"
+source "$HOME/.lib/common.lib.sh"
+source "$HOME/.lib/common-zsh.lib.sh"
+source "$HOME/.lib/${platform}.lib.sh"
 source "$HOME/.zsh_prompt"
 
 # For dotfile module add-on configs

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 code_pathfile="$HOME/.VAR_CODE_PATH"
-dotfiles_pathfile="$HOME/.VAR_DOTFILES_PATH"
+dotfiles_pathfile="$HOME/.VAR_DOTFILES_BASE_PATH"
 platform="$(uname)"
 
 if [ ! -f "$code_pathfile" ] || [ ! -f "$dotfiles_pathfile" ]
