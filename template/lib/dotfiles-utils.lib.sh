@@ -115,6 +115,7 @@ _dotfiles_configure_paths () {
     fi
     export DOTFILES_BASE_PATH="$(cat $dotfiles_base_pathfile)"
     export DOTFILES_PATH="$DOTFILES_BASE_PATH/local"
+    export DOTFILES_TEMPLATE_PATH="$DOTFILES_BASE_PATH/template"
 
     return 0
 }
