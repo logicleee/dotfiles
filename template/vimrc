@@ -1,0 +1,44 @@
+"colorscheme delek
+"colorscheme grb256
+syntax on
+set number
+"set relativenumber
+set hlsearch
+au BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.txt,README.md  setf markdown
+filetype plugin indent on
+set laststatus=2 "activate vim-airline
+set showcmd "shows when leader is pressed
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+"from http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber
+  else
+    set relativenumber
+  endif
+endfunc
+
+:nmap \s :setlocal spell! spelllang=en_us<CR>
+:nmap \ne o<Esc>"=strftime("%Y-%m-%d %H:%M ")<CR>Pi
+:nmap \ts <Esc>"=strftime("%Y-%m-%d %H:%M ")<CR>Pi
+nnoremap \n :call NumberToggle()<cr>
+"map ; :
+"noremap ;; ;
+
+"visual search for selection from practical vim
+xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
+
+function! s:VSetSearch()
+  let temp = @s
+  norm! gv"sy
+  let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
+  let @s = temp
+endfunction

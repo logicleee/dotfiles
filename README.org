@@ -1,0 +1,23 @@
+* lee's dotfiles
+CLI my way. (Use at your own risk)
+
+** `templates/`
+contiains what you would typically expect to see here.
+
+** `templates/bin/setup-dotfiles.sh`
+copies templates/ to local/ and links each ~/.file to local/file 
+
+* Installation
+** Clone this repository
+`git clone `
+
+** Run setup
+`cd dotfiles && template/bin/dotfiles-setup.sh`
+* Extending
+If you create a module, utilize the template in `./add-module.sh`
+
+* Resources and Inspiration
+[mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
+[aaronbieber/dotfiles](https://github.com/aaronbieber/dotfiles)
+
+* License

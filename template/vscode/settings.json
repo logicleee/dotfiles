@@ -1,0 +1,25 @@
+{
+  "workbench.startupEditor": "newUntitledFile",
+  "editor.autoClosingBrackets": "always",
+  "editor.autoClosingQuotes": "always",
+  "vetur.validation.template": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "window.zoomLevel": 2,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "vetur.format.defaultFormatter.html": "none",
+  "workbench.colorTheme": "Material Theme",
+  "terminal.integrated.macOptionIsMeta": true,
+  "diffEditor.renderSideBySide": false,
+  "vim.useSystemClipboard": true,
+  "terminal.integrated.copyOnSelection": true,
+  "editor.copyWithSyntaxHighlighting": false,
+  "workbench.colorCustomizations": {
+
+    "editor.selectionBackground": "#135564",
+    "editor.selectionHighlightBackground": "#135864"
+  }
+}

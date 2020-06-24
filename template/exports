@@ -1,0 +1,18 @@
+export PATH="$HOME/bin:$PATH"
+export PATH="${PATH}:/usr/local/texlive/2018basic/bin/x86_64-darwin"
+
+# Add Visual Studio Code (code)
+export PATH="${PATH}:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+# Add Python 3.7 user folder
+export PATH="${PATH}:${HOME}/Library/Python/3.7/bin"
+
+##############################################
+# FOR MODULES:
+#    change DOTFILES_PATHFILE
+#    or create link ~/.dotfiles_config_module
+##############################################
+
+export CODE_PATH="$(cat $code_pathfile)"
+export DOTFILES_PATH="$(cat $dotfiles_pathfile)"
+
