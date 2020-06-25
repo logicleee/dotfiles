@@ -1,6 +1,6 @@
 * lee's dotfiles
   cli my way. 
-  (Use at your own risk)
+  ... use at your own risk ...
 
 ** ~dotfiles/templates/~
    This folder contiains what you would typically expect to see in your home folder as ~~/.<file or folder>~
