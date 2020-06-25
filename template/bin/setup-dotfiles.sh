@@ -70,6 +70,9 @@ _dotfiles_setup_base () {
         fi
     fi
 
+    # to make it easier to setup multiple users
+    cp "${BASH_SOURCE[0]}" /usr/local/share/
+
     cd "$(basename $DOTFILES_BASE_PATH)" && \
     echo "Cloning dotfiles from $URL"    && \
     git clone "$URL"                     && \
