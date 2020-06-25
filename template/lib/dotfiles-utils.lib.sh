@@ -23,36 +23,7 @@ dotfiles_setup () {
     [ -f "$setup_emacs" ] && "$setup_emacs" 
 
     dotfiles_zsh_install_or_update_ohmyzsh
-}
-
-dotfiles_zsh_install_or_update_ohmyzsh () {
-    local URL='https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools'
-    URL+='/install.sh'
-    local zshrc="$DOTFILES_PATH/zshrc"
-
-    if [ ! -d ~/.oh-my-zsh ]
-    then
-        sh -c "$(curl -fsSL $URL)"
-        local xc=$?
-
-        printf '\nsource %s\n' "$zshrc"
-
-        upgrade_oh_my_zsh
-        git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-        ZSH_THEME="powerlevel9k/powerlevel9k"
-        cd "$DOTFILES_PATH/"
-        git clone https://github.com/powerline/fonts.git
-        cd -
-        cd "$DOTFILES_PATH/fonts/"
-        ./install.sh
-        cd -
-
-        return $xc
-    else
-        cd ~/.oh-my-zsh
-        git pull && cd -
-        return $?
-    fi
+    dotfiles_post_setup_message
 }
 
 dotfiles_link_all () {
@@ -110,6 +81,55 @@ dotfiles_link_emacs () {
             _dotfiles_link_item "$src" "$l"
         fi
     done
+}
+
+dotfiles_zsh_install_or_update_ohmyzsh () {
+    local URL='https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools'
+    URL+='/install.sh'
+    local zshrc="$DOTFILES_PATH/zshrc"
+
+    if [ ! -d ~/.oh-my-zsh ]
+    then
+        sh -c "$(curl -fsSL $URL)"
+        local xc=$?
+
+        printf '\nsource %s\n' "$zshrc"
+
+        upgrade_oh_my_zsh
+        git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+        ZSH_THEME="powerlevel9k/powerlevel9k"
+        cd "$DOTFILES_PATH/"
+        git clone https://github.com/powerline/fonts.git
+        cd -
+        cd "$DOTFILES_PATH/fonts/"
+        ./install.sh
+        cd -
+
+        return $xc
+    else
+        cd ~/.oh-my-zsh
+        git pull && cd -
+        return $?
+    fi
+}
+
+dotfiles_post_setup_message () {
+    cat <<EOF
+
+######################################################################
+#          DOTFILES SETUP COMPLETE $(date)
+######################################################################
+
+Review the output above for any errors or warnings.
+
+You can also now run the following commands to set user defaults 
+for $(whoami):
+    source $DOTFILES_PATH/lib/$(uname).setup.lib.sh
+    default_user_setup
+
+######################################################################
+
+EOF
 }
 
 _dotfiles_configure_paths () {
