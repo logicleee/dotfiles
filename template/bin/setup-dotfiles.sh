@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-set -e
+#set -e
+#set -x
 
 code_pathfile="$HOME/.VAR_CODE_PATH"
 dotfiles_base_pathfile="$HOME/.VAR_DOTFILES_BASE_PATH"
