@@ -80,12 +80,14 @@ run_ansible_playbook () {
 
 run_ansible_playbook_POST () {
     # add steps that go just after running ansible playbook
+    _download_1password6
     return 0
 }
 
 
 run_dotfiles_setup () {
     # add steps that go just after running ansible playbook
+    ../setup-dotfiles.sh
     return 0
 }
 
@@ -279,6 +281,13 @@ _install_TeX_packages () {
     logs "BEGIN ${FUNCNAME[0]}"
     "$THISDIR/../lib/install-tex-packages.sh"
     logs "END ${FUNCNAME[0]}; EXIT $?"
+}
+
+_download_1password6 () {
+    cd ~/Downloads
+    wget https://c.1password.com/dist/1P/mac4/1Password-6.8.9.pkg
+    open 1Password-6.8.9.pkg &
+    cd -
 }
 
 caffdisplay () {
