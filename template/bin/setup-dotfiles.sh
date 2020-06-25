@@ -60,7 +60,7 @@ _dotfiles_setup_base () {
     touch "$runonce_flag"
 
     # handle $DOTFILES_BASE_PATH not in $HOME
-    dotfiles_base_parent_path="$(basename $DOTFILES_BASE_PATH)"
+    dotfiles_base_parent_path="$(dirname $DOTFILES_BASE_PATH)"
     if [ ! -e "$dotfiles_base_parent_path" ] 
     then
         if ! mkdir -p "$dotfiles_base_parent_path"
@@ -71,9 +71,9 @@ _dotfiles_setup_base () {
     fi
 
     # to make it easier to setup multiple users
-    cp "${BASH_SOURCE[0]}" /usr/local/share/
+    cp -v "${BASH_SOURCE[0]}" /usr/local/share/
 
-    cd "$(basename $DOTFILES_BASE_PATH)" && \
+    cd "$(dirname $DOTFILES_BASE_PATH)" && \
     echo "Cloning dotfiles from $URL"    && \
     git clone "$URL"                     && \
     cd "$DOTFILES_BASE_PATH"             && \
