@@ -199,6 +199,7 @@ _dotfiles_link_files () {
         "lib/Darwin.install.lib.sh"
         "lib/Darwin.lib.sh"
         "lib/Darwin.setup.lib.sh"
+        "lib/Linux.setup.lib.sh"
         "lib/dotfiles-utils.lib.sh"
         "lib/Linux.lib.sh"
         "ssh/config"
