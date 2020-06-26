@@ -103,7 +103,7 @@ install_complete_notice () {
   Install started: $INSTALL_START_TIME
 Install completed: $(date)
 
-Review logs above for any issues. Re-run ./config/setup.sh as needed.
+Review logs above for any issues. Re-run ~/.system-setup/setup.sh as needed.
 
 Then run ./software-update-playbook.sh to update macOS and packages.
 ./software-update-playbook.sh:
