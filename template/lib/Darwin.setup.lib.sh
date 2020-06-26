@@ -470,7 +470,9 @@ _sys_disable_sudden_motion_sensor () {
 
 _sys_tmutil_disable_local () {
     # Disable local time machine backups
-    sudo tmutil disablelocal
+    #sudo tmutil disablelocal
+    echo '`disablelocal` verb no longer exists: `sudo tmutil disablelocal`'
+    return 0
 }
 
 _sys_swupdate_check_daily () {

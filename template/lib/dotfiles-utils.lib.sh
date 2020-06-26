@@ -322,7 +322,7 @@ _dotfiles_ssh_key_github_hints () {
   pbcopy < ~/.ssh/id_rsa.pub
 
 # use this to copy to clipboard for GitHub
-  eval "$(ssh-agent -s)"
+  eval "\$(ssh-agent -s)"
 
 # to add key to macOS KeyChain
   ssh-add -K ~/.ssh/id_rsa
@@ -335,7 +335,7 @@ Host *
   IdentityFile ~/.ssh/id_rsa
 
 ######################################################################
-
+######################################################################
 EOF
 
 }

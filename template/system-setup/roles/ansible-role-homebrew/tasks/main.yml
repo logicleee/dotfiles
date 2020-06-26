@@ -5,18 +5,21 @@
     tap: "{{ item.name | default(item) }}"
     url: "{{ item.url | default(omit) }}"
     state: present
+    ignore_errors: yes
   loop: "{{ homebrew_taps }}"
 
 - name: Install configured cask applications.
   homebrew_cask:
     name: "{{ item.name | default(item) }}"
     state: present
+    ignore_errors: yes
   loop: "{{ homebrew_cask_apps }}"
 
 - name: Ensure configured homebrew packages are installed.
   homebrew:
     name: "{{ item.name | default(item) }}"
     state: present
+    ignore_errors: yes
   loop: "{{ homebrew_installed_packages }}"
 
 - name: Install global NPM packages.
@@ -25,6 +28,7 @@
     state: "{{ item.state | default('present') }}"
     version: "{{ item.version | default(omit) }}"
     global: yes
+    ignore_errors: yes
   with_items: "{{ npm_packages }}"
 
 - name: Install global Pip packages.
@@ -33,6 +37,7 @@
     state: "{{ item.state | default('present') }}"
     version: "{{ item.version | default(omit) }}"
     executable: pip3
+    ignore_errors: yes
   with_items: "{{ pip_packages }}"
 
 - name: Install global Ruby gems.
@@ -41,4 +46,5 @@
     state: "{{ item.state | default('present') }}"
     version: "{{ item.version | default(omit) }}"
     user_install: no
+    ignore_errors: yes
   with_items: "{{ gem_packages }}"
