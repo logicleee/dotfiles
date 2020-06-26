@@ -1,5 +1,5 @@
 ---
-homebrew_user: l334dm1n
+homebrew_user: admin
 homebrew_group: brew
-primary_non_admin_user: leegettys
-primary_non_admin_user_shortname: lee
+primary_non_admin_user: username
+primary_non_admin_user_shortname: user
