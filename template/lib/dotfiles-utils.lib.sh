@@ -105,6 +105,7 @@ dotfiles_zsh_install_or_update_ohmyzsh () {
         ./install.sh
         cd -
         _dotfiles_ohmyzsh_set_theme
+        printf 'ZSH_DISABLE_COMPFIX=true\n\n%s' "$(cat ~/.zshrc)" > ~/.zshrc
 
         return $xc
     else
