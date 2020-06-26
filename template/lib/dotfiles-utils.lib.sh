@@ -104,6 +104,7 @@ dotfiles_zsh_install_or_update_ohmyzsh () {
         cd "$DOTFILES_PATH/fonts/"
         ./install.sh
         cd -
+        _dotfiles_ohmyzsh_set_theme
 
         return $xc
     else
@@ -122,6 +123,11 @@ dotfiles_post_setup_message () {
 
 Review the output above for any errors or warnings.
 
+For zsh/powerline and themes:
+    iTerm2 > Preferences > Profiles > Text > Change Font
+    OR import the Default.json from:
+    ~/dotfiles/local/iTerm/
+
 You can also now run the following commands to set user defaults 
 for $(whoami):
     source $DOTFILES_PATH/lib/$(uname).setup.lib.sh
@@ -130,6 +136,14 @@ for $(whoami):
 ######################################################################
 
 EOF
+}
+
+_dotfiles_ohmyzsh_set_theme () {
+    local theme="${1:-powerlevel9k}"
+    local regex='s/^#?(ZSH_THEME=).*/\1\"'
+    regex+="$theme\/$theme"
+    regex+='\"/'
+    sed -E -e $regex  -i .oldtheme.bak ~/.zshrc
 }
 
 _dotfiles_configure_paths () {
