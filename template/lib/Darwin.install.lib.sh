@@ -86,9 +86,7 @@ run_ansible_playbook_POST () {
 
 
 run_dotfiles_setup () {
-    # add steps that go just after running ansible playbook
-    ../setup-dotfiles.sh
-    return 0
+    "$THISDIR/../../bin/setup-dotfiles.sh"
 }
 
 brewinstall_packages () {
