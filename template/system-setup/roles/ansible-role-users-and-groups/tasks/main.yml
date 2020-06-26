@@ -1,0 +1,26 @@
+---
+# tasks file for ansible-role-users-and-groups
+- name: Create homebrew group
+  group:
+    name: "{{ homebrew_group }}"
+    state: present
+  become: true
+
+#- name: Create user
+#  user:
+#    name: "{{ primary_non_admin_user }}"
+#    state: present
+#    comment: "{{ primary_non_admin_user_shortname }}"
+#    groups: "{{ homebrew_group }}"
+#    update_password: on_create
+#    password: "{{ primary_non_admin_user }}"
+#    shell: /bin/zsh
+#    append: yes
+#  become: true
+ 
+- name: Update ansible user
+  user:
+    name: "{{ ansible_user }}"
+    groups: "{{ homebrew_group }}"
+    append: yes
+  become: true

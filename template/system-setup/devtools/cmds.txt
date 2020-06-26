@@ -1,0 +1,35 @@
+# SETUP NEW WAY
+cd ~
+git clone https://github.com/logicleee/dotfiles.git
+cd dotfiles/template/system-setup/      && \
+open devtools/log_stream_logger.command && \
+./run_setup.sh || ~/.system-setup/setup.sh
+
+# SETUP OLD WAY
+ip='10.0.1.2'
+curl http://${ip}:8080/cmds.txt
+
+cd ~/ && rm dotfiles-master.tar.gz
+curl http://${ip}:8080/dotfiles-master.tar.gz -o dotfiles-master.tar.gz
+tar xzf dotfiles-master.tar.gz
+cd dotfiles/template/system-setup/      && \
+open devtools/log_stream_logger.command && \
+./run_setup.sh || ~/.system-setup/setup.sh
+
+defaults read com.apple.Finder | grep -i toolbar
+open .
+
+# DOTFILES ONLY - OLD WAY
+cd ~/
+touch ~/.{bash,input}rc
+touch ~/.{exports,bash_aliases}
+#wget http://10.0.1.70:8080/dotfiles-master.tgz
+#tar xzf dotfiles-master.tgz
+#source dotfiles/template/lib/dotfiles-utils.lib.sh
+#set -x
+#dotfiles_zsh_install_or_update_ohmyzsh () { return 0 ; }
+#dotfiles_setup
+
+# DOTFILES ONLY - NEW WAY
+git clone https://github.com/logicleee/dotfiles.git
+./dotfiles/template/bin/setup-dotfiles.sh

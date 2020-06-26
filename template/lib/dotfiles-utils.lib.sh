@@ -98,10 +98,10 @@ dotfiles_zsh_install_or_update_ohmyzsh () {
         upgrade_oh_my_zsh
         git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
         ZSH_THEME="powerlevel9k/powerlevel9k"
-        cd "$DOTFILES_PATH/"
+        cd "$DOTFILES_PATH/config"
         git clone https://github.com/powerline/fonts.git
         cd -
-        cd "$DOTFILES_PATH/fonts/"
+        cd "$DOTFILES_PATH/config/fonts/"
         ./install.sh
         cd -
         _dotfiles_ohmyzsh_set_theme

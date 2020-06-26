@@ -1,0 +1,12 @@
+---
+homebrew_installed_packages:
+  - aspell
+  - bash-completion
+  - git
+  - node
+  - nvim
+  - python3
+  - readline
+  - ssh-copy-id
+  - wget
+  - zsh-completions

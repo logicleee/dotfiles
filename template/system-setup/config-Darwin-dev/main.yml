@@ -1,0 +1,16 @@
+---
+- hosts: all
+  connection: local
+
+  vars_files:
+    - config/defaults.yml
+    - config/brew.yml
+    - config/brew-cask.yml
+    - config/brew-taps.yml
+    - config/gem.yml
+    - config/npm.yml
+    - config/pip.yml
+
+  roles:
+    - roles/ansible-role-users-and-groups
+    - roles/ansible-role-homebrew

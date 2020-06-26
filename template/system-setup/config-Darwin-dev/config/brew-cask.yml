@@ -1,0 +1,22 @@
+---
+homebrew_cask_appdir: /Applications
+homebrew_cask_apps:
+  - anki
+  - basictex
+  - chromedriver
+  - dropbox
+  - emacs
+  - firefox
+  - gitter
+  - google-chrome
+  #- handbrake
+  - iterm2
+  - kindle
+  #- mactex
+  - slack
+  - spotify
+  - vagrant
+  - visual-studio-code
+  - virtualbox
+  - vlc
+  - vmware-fusion

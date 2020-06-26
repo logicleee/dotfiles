@@ -1,0 +1,10 @@
+---
+npm_packages:
+  - name: '@google/clasp'
+    state: present
+  - name: '@vue/cli'
+    state: present
+  - name: create-react-app
+    state: present
+  - name: http-server
+    state: present

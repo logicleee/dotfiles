@@ -1,0 +1,26 @@
+---
+homebrew_installed_packages:
+  - aspell
+  - bash-completion
+  - fontconfig
+  - gifsicle
+  - git
+  - go
+  - gpg
+  - highlight
+  - httpie
+  - hugo
+  - ispell
+  - nmap
+  - node
+  - nvim
+  - openssl
+  - python3
+  - r
+  - readline
+  - sqlite
+  - ssh-copy-id
+  - tree
+  - wget
+  - xz
+  - zsh-completions
