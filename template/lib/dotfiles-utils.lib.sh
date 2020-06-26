@@ -23,6 +23,7 @@ dotfiles_setup () {
     [ -f "$setup_emacs" ] && "$setup_emacs" 
 
     dotfiles_zsh_install_or_update_ohmyzsh
+    _dotfiles_ssh_key_github_hints
     dotfiles_post_setup_message
 }
 
@@ -302,4 +303,39 @@ _if_exists_move_but_backup_item () {
         return $?
     fi
     return 0
+}
+
+_dotfiles_ssh_key_github_hints () {
+    cat <<EOF
+
+######################################################################
+# SSH KEY SETUP
+######################################################################
+
+# generate your key
+  ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+# Open GitHub and sign in:
+  open https://github.com/settings/keys
+
+# use this to copy to clipboard for GitHub
+  pbcopy < ~/.ssh/id_rsa.pub
+
+# use this to copy to clipboard for GitHub
+  eval "$(ssh-agent -s)"
+
+# to add key to macOS KeyChain
+  ssh-add -K ~/.ssh/id_rsa
+
+# Update ~/.ssh/config
+
+Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_rsa
+
+######################################################################
+
+EOF
+
 }
