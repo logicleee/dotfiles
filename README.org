@@ -10,7 +10,7 @@
 
 * Installation
 ** Clone this repository
-** Run ~dotfiles-setup.sh~
+* Run ~dotfiles-setup.sh~
    #+BEGIN_SRC sh
     cd dotfiles && ./template/bin/dotfiles-setup.sh
    #+END_SRC
@@ -23,3 +23,10 @@
   - [[https://github.com/aaronbieber/dotfiles][aaronbieber/dotfiles]]
   - [[https://github.com/saxenanurag/kennethreitzdotfiles][saxenanurag/kennethreitzdotfiles]]
 
+
+* ~system-setup~
+  Mostly for macOS, but room to add a Linux setup
+
+* Run ~run_setup.sh~
+  Installer will guide you through device profile selection and hostname setup.
+  I took out steps setting up other users via ansible -- for macOS, it may be better to just do via GUI

@@ -234,7 +234,7 @@ _dotfiles_link_files () {
 
 _dotfiles_copy_template_to_local () {
     [ -d  "$DOTFILES_PATH" ] || \
-        cp -rv "$DOTFILES_TEMPLATE_PATH" "$DOTFILES_PATH"
+        cp -r "$DOTFILES_TEMPLATE_PATH" "$DOTFILES_PATH"
 }
 
 _dotfiles_create_home_folders () {
