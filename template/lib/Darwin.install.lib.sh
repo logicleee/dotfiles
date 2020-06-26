@@ -279,15 +279,17 @@ _brew_cleanup () {
 
 _install_TeX_packages () {
     logs "BEGIN ${FUNCNAME[0]}"
-    "$THISDIR/../lib/install-tex-packages.sh"
+    "$THISDIR/../../bin/dotfiles-install-tex-packages.sh"
     logs "END ${FUNCNAME[0]}; EXIT $?"
 }
 
 _download_1password6 () {
+    logs "BEGIN ${FUNCNAME[0]}"
     cd ~/Downloads
     wget https://c.1password.com/dist/1P/mac4/1Password-6.8.9.pkg
     open 1Password-6.8.9.pkg &
     cd -
+    logs "END ${FUNCNAME[0]}; EXIT $?"
 }
 
 caffdisplay () {

@@ -1,0 +1,4 @@
+---
+homebrew_taps:
+  - homebrew/core
+  - homebrew/cask

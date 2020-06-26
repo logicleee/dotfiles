@@ -1,0 +1,24 @@
+---
+npm_packages:
+  - name: '@google/clasp'
+    state: present
+  - name: '@vue/cli'
+    state: present
+  - name: create-react-app
+    state: present
+  - name: fenix-cli
+    state: present
+  - name: gitjk
+    state: present
+  - name: gulp-cli
+    state: present
+  - name: http-server
+    state: present
+  - name: json-server
+    state: present
+  - name: reload
+    state: present
+  - name: pug-cli
+    state: present
+  - name: vuepress
+    state: present

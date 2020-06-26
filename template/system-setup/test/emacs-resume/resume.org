@@ -1,0 +1,84 @@
+#+OPTIONS: toc:nil H:10 tex:t
+#+STARTUP: hidestars indent
+#+OPTIONS: author:nil date:nil
+#+TITLE:
+#+INCLUDE: personal-info-full.org
+#+LaTeX_HEADER: \usepackage{../resume-latex-template}
+#+LaTeX_HEADER: \hypersetup{colorlinks=true, urlcolor={url-gray}}
+#+LaTeX_CLASS_OPTIONS: [letterpaper]
+#+LaTeX_HEADER: \usepackage{enumitem}
+#+LaTeX_HEADER: \setlist{leftmargin=0.25in,nosep}
+
+{{{HEADER}}}
+
+* QUALIFICATIONS SUMMARY
+** Technology Professional
+- Line 1
+** Project Management Qualifications
+- Line 1
+** Industry Experience
+- Line 1
+* WORK EXPERIENCE
+** Position at [[https://www.example.com/][Example]]
+*** April 2018 - August 2018
+- Line 1
+- Line 2
+- Line 3
+- Line 4
+** Position at [[https://www.example.com/][Example]]
+*** April 2017 - April 2018
+- Line 1
+- Line 2
+- Line 3
+- Line 4
+- Line 5
+** Position at [[https://www.example.com/][Example]]
+*** November 2014 - April 2017
+- Line 1
+- Line 2
+- Line 3
+- Line 4
+- Line 5
+** Position at [[https://www.example.com/][Example]]
+*** October 2013 to November 2014
+- Line 1
+- Line 2
+- Line 3
+- Line 4
+- Line 5
+** Position at [[https://www.example.com/][Example]]
+*** October 2012 to October 2013
+- Line 1
+- Line 2
+- Line 3
+- Line 4
+- Line 5
+** Position at [[https://www.example.com/][Example]]
+*** April 2011 to March 2012
+- Line 1
+- Line 2
+- Line 3
+- Line 4
+** Position at [[https://www.example.com/][Example]]
+*** January 2008 to November 2010
+- Line 1
+- Line 2
+- Line 3
+- Line 4
+** Position at [[http://www.navy.mil/][US Navy]]
+*** 2000 to 2008
+- Line 1
+- Line 2
+- Line 3
+- Line 4
+* HONORS AND AWARDS
+** Excellence Team Award
+- Line 1
+* EDUCATION AND CERTIFICATIONS
+** Master of Business in Administration, 2010
+*** [[https://www.example.edu/][Central University]], Off-campus and Online
+- Line 1
+** Bachelor of Music, 2000
+*** [[http://www.example.edu][State University]], Anytown, USA
+- Line 1
+** [[https://freecodecamp.com][FreeCodeCamp]]

@@ -1,0 +1,38 @@
+* Setting up any new host
+  - On repo/server, run ./devtools/deploy.sh
+    - fix this -- move to github!
+  - Use curl to download cmds.txt from repo/server
+  - Run commands from cmds.txt
+    - Note: dotfile setup happens in that user automatically
+    - A copy of the dotfiles-setup.sh script is added to =/usr/local/share=
+  - NOTE: for macOS, create all GUI users manually via the GUI
+
+* Testing: VMware setup
+  - Drag macOS installer into VMware
+  - Finish steps:
+    - base install
+    - shudown
+    - create linked clone *before* doing any config at all
+  - Start linked clone
+  - Do macOS Setup process - Languauage, timezone, create user, etc
+  - Install VMware Tools
+  - shutdown
+  - create linked clone for testing
+
+* How to make changes
+  - To add different device profiles:
+    #+BEGIN_SRC sh
+    cp -r config-Darwin-dev config-<Something-optional>
+    vim config-<Something-optional>/any.file.you.want.to.change
+    #+END_SRC
+    The new ~config-~ folder will be listed as a menu option when
+    running ~./run_setup.sh~
+
+* Other setup notes / configs
+  - Mac App Store
+    - Dash
+    - Microsoft Remote Desktop
+    - Pixelmator
+    - Dash
+    - Dash
+    - Dash

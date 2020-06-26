@@ -1,0 +1,15 @@
+#+MACRO: FIRST    John
+#+MACRO: MIDDLE   C
+#+MACRO: LAST     Doe
+#+MACRO: SUFFIX   III
+#+MACRO: FULL     {{{FIRST}}} {{{MIDDLE}}} {{{LAST}}}, {{{SUFFIX}}}
+#+MACRO: NAME     {{{MIDDLE}}} {{{LAST}}}
+#+MACRO: BLOG     http://www.example.io
+#+MACRO: EMAIL    user@example.com
+#+MACRO: PHONE    (999) 999-9999
+#+MACRO: CODE     https://github.com/developer
+#+MACRO: ADDRESS1 1234 Main Street
+#+MACRO: ADDRESS2 Anytown, US 12345-1234
+
+#+MACRO: HEADER \resheader{ {{{FULL}}} }{ {{{BLOG}}} }{ {{{EMAIL}}} }{ {{{PHONE}}} }{ {{{ADDRESS1}}} }{ {{{ADDRESS2}}} }
+#+MACRO: HEADERFULL \resheader{ {{{FULL}}} }{ {{{BLOG}}} }{ {{{CODE}}} }{ {{{EMAIL}}} }{ {{{PHONE}}} }{ {{{ADDRESS1}}} }{ {{{ADDRESS2}}} }
