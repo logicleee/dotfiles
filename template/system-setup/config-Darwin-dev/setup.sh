@@ -8,12 +8,12 @@ source "$THISDIR/../../lib/Darwin.setup.lib.sh" || exit 1
 # FUNCTION OVERRIDES FOR SOURCED LIBRARIES #
 # ######################################## #
 
-brewinstall_packages_POST () {
+_brewinstall_packages_POST () {
     _brew_cask_install_VMware_Fusion
     _brew_cask_install_VirtualBox
 }
 
-run_ansible_playbook_POST () {
+_run_ansible_playbook_POST () {
     # add steps that go just after running ansible playbook
     #return 0
     if [ ! -f "$tex_packages_install_complete" ] ; then
@@ -27,6 +27,6 @@ run_ansible_playbook_POST () {
 # BEGIN EXECUTION #
 # ############### #
 
-trap cleanup EXIT
+trap _install_cleanup EXIT
 
 INSTALL_MAIN
