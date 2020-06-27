@@ -6,6 +6,7 @@ EMACS_CONFIG_PATH="$(cat $emacsconfig_pathfile)" || exit
 emacs_d="$EMACS_CONFIG_PATH/emacs.d"
 site_lisp="$EMACS_CONFIG_PATH/emacs.d/site-lisp"
 emacs_lisp_local="$emacs_d/lisp-local"
+themes="$emacs_d/themes"
 
 dotfiles_emacs_install_purcells_config () {
     cd "$EMACS_CONFIG_PATH/"
@@ -23,6 +24,7 @@ dotfiles_emacs_install_jade_mode () {
 dotfiles_emacs_install_theme_solarized () {
     cd "$site_lisp"
     git clone https://github.com/sellout/emacs-color-theme-solarized.git
+    ln -s "$site_lisp/emacs-color-theme-solarized/solarized-"* "$themes/"
     cd -
 }
 
@@ -33,6 +35,7 @@ dotfiles_emacs_update_config () {
 }
 
 dotfiles_emacs_link_files () {
+    mkdir -p "$emacs_d/themes"
     _dotfiles_link_item "$emacs_d" ~/.emacs.d
     _dotfiles_link_item "$DOTFILES_PATH/emacs-lisp-local" "$emacs_lisp_local"
     _dotfiles_link_item "$DOTFILES_PATH/emacs-lisp-local/init-local.el" \
