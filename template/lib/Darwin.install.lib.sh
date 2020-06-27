@@ -51,45 +51,45 @@ sudocfg_macOS_host_net () {
 }
 
 
-brewinstall_packages_PRE () {
+_brewinstall_packages_PRE () {
     # add steps that go just before installing brew
     return 0
 }
 
-brewinstall_packages_POST () {
+_brewinstall_packages_POST () {
     # add steps that go just after installing base brew packages
     return 0
 }
 
-system_setup () {
+install_system_setup () {
     default_system_setup
 }
 
-user_setup () {
+install_user_setup () {
     default_user_setup
 }
 
-run_ansible_playbook_PRE () {
+_run_ansible_playbook_PRE () {
     # add steps that go just before running ansible playbook
     return 0
 }
 
-run_ansible_playbook () {
+install_run_ansible_playbook () {
     ansible-playbook main.yml -i inventory
 }
 
-run_ansible_playbook_POST () {
+_run_ansible_playbook_POST () {
     # add steps that go just after running ansible playbook
     _download_1password6
     return 0
 }
 
 
-run_dotfiles_setup () {
+install_run_dotfiles_setup () {
     "$THISDIR/../../bin/setup-dotfiles.sh"
 }
 
-brewinstall_packages () {
+install_brewinstall_packages () {
         _install_or_upgrade_brew
         _brew_install_base_packages
         _upgrade_pip3
@@ -104,6 +104,10 @@ install_complete_notice () {
 Install completed: $(date)
 
 Review logs above for any issues. Re-run ~/.system-setup/setup.sh as needed.
+To reinstall ansible packages only:
+    cd ~/.system-setup && \
+    ansible-playbook main.yml -i inventory --ask-become-pas
+
 
 Then run ./software-update-playbook.sh to update macOS and packages.
 ./software-update-playbook.sh:
@@ -295,7 +299,7 @@ caffdisplay () {
     caffeinate -d &
 }
 
-cleanup () {
+_install_cleanup () {
     echo "Cleaning up..."
     kill $PID_CAFF
 }
@@ -318,19 +322,19 @@ INSTALL_MAIN () {
     #fi
 
     if [ ! -f "$bash_install_complete" ] ; then
-        brewinstall_packages_PRE
-        brewinstall_packages
-        brewinstall_packages_POST
+        _brewinstall_packages_PRE
+        install_brewinstall_packages
+        _brewinstall_packages_POST
         touch "$bash_install_complete"
     fi
 
-    system_setup
-    user_setup
-    run_ansible_playbook_PRE
-    run_ansible_playbook
-    run_ansible_playbook_POST
+    install_system_setup
+    install_user_setup
+    _run_ansible_playbook_PRE
+    install_run_ansible_playbook
+    _run_ansible_playbook_POST
 
-    run_dotfiles_setup
+    install_run_dotfiles_setup
     install_complete_notice
 
 }
