@@ -72,7 +72,9 @@ _dotfiles_setup_base () {
     fi
 
     # to make it easier to setup multiple users
-    cp -v "${BASH_SOURCE[0]}" /usr/local/share/
+    cp -v "$DOTFILES_BASE_PATH/template/bin/setup-dotfiles.sh" \
+        /usr/local/share/
+    echo "  ... Copied ${BASH_SOURCE[0]} to /usr/local/share, exited: $?"
 
     cd "$(dirname $DOTFILES_BASE_PATH)" && \
     echo "Cloning dotfiles from $URL"    && \
