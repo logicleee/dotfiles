@@ -52,6 +52,7 @@ then
     dotfiles_emacs_install_purcells_config
     dotfiles_emacs_install_jade_mode
     dotfiles_emacs_install_theme_solarized
+    open /Applications/Emacs.app
 else
     dotfiles_emacs_update_config
 fi
