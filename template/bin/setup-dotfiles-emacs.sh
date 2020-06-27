@@ -33,8 +33,7 @@ dotfiles_emacs_update_config () {
 }
 
 dotfiles_emacs_link_files () {
-    [ -d "$emacs_lisp_local" ] && rm -r "$emacs_lisp_local"
-    _if_exists_move_but_backup_item "$emacs_d/lisp/init-local.el"
+    _dotfiles_link_item "$emacs_d" ~/.emacs.d
     _dotfiles_link_item "$DOTFILES_PATH/emacs-lisp-local" "$emacs_d/lisp-local"
     _dotfiles_link_item "$emacs_lisp_local/init-local.el" \
         "$emacs_d/lisp/init-local.el"
