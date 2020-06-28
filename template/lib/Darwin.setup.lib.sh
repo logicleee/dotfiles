@@ -60,6 +60,7 @@ default_user_setup () {
     _user_prefs_save_shows_expanded_panel
     _user_prefs_save_to_local_disk_preferred
     _user_prefs_security_req_password
+    _user_prefs_spotlight
     _user_screenshots
     _user_trackpad_three_finger_drag_enable
 
@@ -546,4 +547,31 @@ _sys_app_PDF_join_py () {
     # You can even pass a 'shuffle' argument to make the script take one page per document in turn instead:
     # PDF_join.py -s -o PATH/TO/YOUR/MERGED/FILE.pdf  /PATH/TO/DIR/*.pdf
     sudo ln -s "/System/Library/Automator/Combine PDF Pages.action/Contents/Resources/join.py" "/Applications/PDF_join.py"
+}
+
+_user_prefs_spotlight () {
+    defaults write com.apple.Spotlight orderedItems -array \
+        '{"enabled" = 1;"name" = "APPLICATIONS";}' \
+        '{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
+        '{"enabled" = 1;"name" = "DIRECTORIES";}' \
+        '{"enabled" = 1;"name" = "PDF";}' \
+        '{"enabled" = 1;"name" = "FONTS";}' \
+        '{"enabled" = 0;"name" = "DOCUMENTS";}' \
+        '{"enabled" = 0;"name" = "MESSAGES";}' \
+        '{"enabled" = 0;"name" = "CONTACT";}' \
+        '{"enabled" = 0;"name" = "EVENT_TODO";}' \
+        '{"enabled" = 0;"name" = "IMAGES";}' \
+        '{"enabled" = 0;"name" = "BOOKMARKS";}' \
+        '{"enabled" = 1;"name" = "MUSIC";}' \
+        '{"enabled" = 0;"name" = "MOVIES";}' \
+        '{"enabled" = 1;"name" = "PRESENTATIONS";}' \
+        '{"enabled" = 1;"name" = "SPREADSHEETS";}' \
+        '{"enabled" = 0;"name" = "SOURCE";}' \
+        '{"enabled" = 0;"name" = "MENU_DEFINITION";}' \
+        '{"enabled" = 0;"name" = "MENU_OTHER";}' \
+        '{"enabled" = 0;"name" = "MENU_CONVERSION";}' \
+        '{"enabled" = 0;"name" = "MENU_EXPRESSION";}' \
+        '{"enabled" = 0;"name" = "MENU_WEBSEARCH";}' \
+        '{"enabled" = 0;"name" = "MENU_SPOTLIGHT_SUGGESTIONS";}'
+
 }
