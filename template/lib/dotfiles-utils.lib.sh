@@ -94,8 +94,6 @@ dotfiles_zsh_install_or_update_ohmyzsh () {
         sh -c "$(curl -fsSL $URL)"
         local xc=$?
 
-        printf '\nsource %s\n' "$zshrc"
-
         upgrade_oh_my_zsh
         git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
         ZSH_THEME="powerlevel9k/powerlevel9k"
@@ -107,6 +105,7 @@ dotfiles_zsh_install_or_update_ohmyzsh () {
         cd -
         _dotfiles_ohmyzsh_set_theme
         printf 'ZSH_DISABLE_COMPFIX=true\n\n%s' "$(cat ~/.zshrc)" > ~/.zshrc
+        printf '\nsource %s\n\n' "$zshrc" >> ~/.zshrc
 
         return $xc
     else
