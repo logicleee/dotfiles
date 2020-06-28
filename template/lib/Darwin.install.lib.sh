@@ -106,7 +106,7 @@ Install completed: $(date)
 Review logs above for any issues. Re-run ~/.system-setup/setup.sh as needed.
 To reinstall ansible packages only:
     cd ~/.system-setup && \
-    ansible-playbook main.yml -i inventory --ask-become-pas
+    ansible-playbook main.yml -i inventory --ask-become-pass
 
 
 Then run ./software-update-playbook.sh to update macOS and packages.
@@ -127,10 +127,13 @@ _sudo_keep_alive () {
 
 _get_host_name () {
     cat <<EOF
-Enter hostname for this device, examples:
-term0: primary non-lan multi-purpose desktop-OS based node
-lan1:  secondary lan-ONLY multi-purpose desktop-OS based node
-cm:  config managment node
+Enter hostname for this device.  For inspiration:
+earth, moon, mars1, mars2, mars3
+hydrogen, lithium, helium
+potato, carrot, radish, turnip, parsnip, peanut
+twoface, joker, riddler
+morpheus, zion, smith, neo, trinity, nebuchadnezzarm, dozer
+dragoon, immortal, citadelofadun, darkobelisk, templararchives, warpgate, thor, marauder, reaver, banshee, hydralisk, defilers, zergling
 EOF
     while read -p "Enter hostname without domain: " H ; do
         export computer_name="$H"
