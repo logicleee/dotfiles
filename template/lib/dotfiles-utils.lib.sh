@@ -321,7 +321,7 @@ _dotfiles_ssh_key_github_hints () {
 # use this to copy to clipboard for GitHub
   pbcopy < ~/.ssh/id_rsa.pub
 
-# use this to copy to clipboard for GitHub
+# Start ssh-agent
   eval "\$(ssh-agent -s)"
 
 # to add key to macOS KeyChain
