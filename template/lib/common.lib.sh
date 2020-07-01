@@ -124,8 +124,10 @@ find_videos () {
 dotfiles_overwrite_local_from_template () {
     diff ~/dotfiles/{local,template}/lib
     diff ~/dotfiles/{local,template}/bin
-    confirm "OK to overwrite ~/dotfiles/local/" || exit 0
+    diff ~/dotfiles/{local,template}/system-setup
+    confirm "OK to overwrite ~/dotfiles/local/{lib,bin,system-steup}?" || exit 0
     echo "Overwriting..."
     cp -vR ~/dotfiles/template/lib ~/dotfiles/local/
     cp -vR ~/dotfiles/template/bin ~/dotfiles/local/
+    cp -vR ~/dotfiles/template/system-setup ~/dotfiles/local/
 }
