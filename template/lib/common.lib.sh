@@ -131,3 +131,13 @@ dotfiles_overwrite_local_from_template () {
     cp -vR ~/dotfiles/template/bin ~/dotfiles/local/
     cp -vR ~/dotfiles/template/system-setup ~/dotfiles/local/
 }
+
+log_folder_size () {
+    local logfile=~/disk_usage.log
+    echo "$header" >> "$logfile"
+    dfh >> "$logfile"
+    du -sh ~ >> "$logfile"
+    du -sh ~/* >> "$logfile"
+    du -sh ~/Dropbox/MUSIC/ ~/Dropbox/Pictures/ >> "$logfile"
+    less +G "$logfile"
+}
