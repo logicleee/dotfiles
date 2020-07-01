@@ -116,3 +116,16 @@ EOF
 find_videos () {
     find . -type f | grep -E "\.webm$|\.flv$|\.vob$|\.ogg$|\.ogv$|\.drc$|\.gifv$|\.mng$|\.avi$|\.mov$|\.qt$|\.wmv$|\.yuv$|\.rm$|\.rmvb$|/.asf$|\.amv$|\.mp4$|\.m4v$|\.mp*$|\.m?v$|\.svi$|\.3gp$|\.flv$|\.f4v$"
 }
+
+##################################################
+# FILES
+##################################################
+
+dotfiles_overwrite_local_from_template () {
+    diff ~/dotfiles/{local,template}/lib
+    diff ~/dotfiles/{local,template}/bin
+    confirm "OK to overwrite ~/dotfiles/local/" || exit 0
+    echo "Overwriting..."
+    cp -vR ~/dotfiles/template/lib ~/dotfiles/local/
+    cp -vR ~/dotfiles/template/bin ~/dotfiles/local/
+}
