@@ -54,6 +54,7 @@ default_user_setup () {
     _user_login_reopen_apps_disable
     _user_menubar_battery_percentage_on
     _user_menubar_icons
+    _user_prefs_24_time_with_date
     _user_prefs_UI_dark_theme
     _user_prefs_ctrl_scroll_zoom_enabled
     _user_prefs_print_shows_expanded_panel
@@ -273,6 +274,10 @@ _user_prefs_UI_dark_theme () {
 
 _user_prefs_scrollbars_show () {
     defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+}
+
+_user_prefs_24_time_with_date () {
+    defaults write com.apple.menuextra.clock DateFormat -string 'EEE MMM d  H:mm'
 }
 
 _user_menubar_icons () {
@@ -567,10 +572,10 @@ _user_prefs_spotlight () {
         '{"enabled" = 1;"name" = "PRESENTATIONS";}' \
         '{"enabled" = 1;"name" = "SPREADSHEETS";}' \
         '{"enabled" = 0;"name" = "SOURCE";}' \
-        '{"enabled" = 0;"name" = "MENU_DEFINITION";}' \
+        '{"enabled" = 1;"name" = "MENU_DEFINITION";}' \
         '{"enabled" = 0;"name" = "MENU_OTHER";}' \
         '{"enabled" = 0;"name" = "MENU_CONVERSION";}' \
-        '{"enabled" = 0;"name" = "MENU_EXPRESSION";}' \
+        '{"enabled" = 1;"name" = "MENU_EXPRESSION";}' \
         '{"enabled" = 0;"name" = "MENU_WEBSEARCH";}' \
         '{"enabled" = 0;"name" = "MENU_SPOTLIGHT_SUGGESTIONS";}'
 

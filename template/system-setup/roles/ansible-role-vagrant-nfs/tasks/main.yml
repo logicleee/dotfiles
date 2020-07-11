@@ -1,0 +1,42 @@
+---
+# tasks file for ansible-role-vagrant-nfs
+- name: Add NFS share for group vagrant
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    regexp: '^Cmnd_Alias VAGRANT_EXPORTS_ADD'
+    line: 'Cmnd_Alias VAGRANT_EXPORTS_ADD = /usr/bin/tee -a /etc/exports'
+
+- name: Add NFS share for group vagrant
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    regexp: '^Cmnd_Alias VAGRANT_NFSD'
+    line: 'Cmnd_Alias VAGRANT_NFSD = /sbin/nfsd restart'
+
+- name: Add NFS share for group vagrant
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    regexp: '^Cmnd_Alias VAGRANT_EXPORTS_REMOVE'
+    line: 'Cmnd_Alias VAGRANT_EXPORTS_REMOVE = /usr/bin/sed -E -e /*/ d -ibak /etc/exports'
+
+- name: Add NFS share for group vagrant
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    regexp: '^%vagrant ALL=(root) NOPASSWD: VAGRANT_EXPORTS_ADD,'
+    line: '%vagrant ALL=(root) NOPASSWD: VAGRANT_EXPORTS_ADD, VAGRANT_NFSD, VAGRANT_EXPORTS_REMOVE'
+
+- name: Create vagrant group
+  group:
+    name: "{{ vagrant_group }}"
+    state: present
+  become: true
+
+- name: Update vagrant user
+  user:
+    name: "{{ vagrant_user }}"
+    groups: "{{ vagrant_group }}"
+    append: yes
+  become: true
