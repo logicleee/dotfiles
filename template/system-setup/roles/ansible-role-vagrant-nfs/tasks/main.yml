@@ -6,6 +6,7 @@
     state: present
     regexp: '^Cmnd_Alias VAGRANT_EXPORTS_ADD'
     line: 'Cmnd_Alias VAGRANT_EXPORTS_ADD = /usr/bin/tee -a /etc/exports'
+  become: true
 
 - name: Add NFS share for group vagrant
   lineinfile:
@@ -13,6 +14,7 @@
     state: present
     regexp: '^Cmnd_Alias VAGRANT_NFSD'
     line: 'Cmnd_Alias VAGRANT_NFSD = /sbin/nfsd restart'
+  become: true
 
 - name: Add NFS share for group vagrant
   lineinfile:
@@ -20,6 +22,7 @@
     state: present
     regexp: '^Cmnd_Alias VAGRANT_EXPORTS_REMOVE'
     line: 'Cmnd_Alias VAGRANT_EXPORTS_REMOVE = /usr/bin/sed -E -e /*/ d -ibak /etc/exports'
+  become: true
 
 - name: Add NFS share for group vagrant
   lineinfile:
@@ -27,6 +30,7 @@
     state: present
     regexp: '^%vagrant ALL=(root) NOPASSWD: VAGRANT_EXPORTS_ADD,'
     line: '%vagrant ALL=(root) NOPASSWD: VAGRANT_EXPORTS_ADD, VAGRANT_NFSD, VAGRANT_EXPORTS_REMOVE'
+  become: true
 
 - name: Create vagrant group
   group:

@@ -1,0 +1,9 @@
+---
+- hosts: all
+  connection: local
+
+  vars:
+    vagrant_user: username
+
+  roles:
+    - roles/ansible-role-vagrant-nfs

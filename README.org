@@ -14,6 +14,9 @@
    #+BEGIN_SRC sh
     cd dotfiles && ./template/bin/dotfiles-setup.sh
    #+END_SRC
+** Installation notes for VMware Fusion
+   If you primarily use VMware Fusion in a different and non-priviledged user, you may need to [[https://www.vmware.com/products/fusion/fusion-evaluation.html][download and install VMware Fusion]] as that user
+
 * Extending
   The ~dotfiles/local~ folder is in ~.gitignore~ :
   You can move it somewhere else (like Dropbox) or create a ~git submodule~ there.
