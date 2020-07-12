@@ -103,9 +103,12 @@ dotfiles_zsh_install_or_update_ohmyzsh () {
         cd "$DOTFILES_PATH/config/fonts/"
         ./install.sh
         cd -
-        _dotfiles_ohmyzsh_set_theme
-        printf 'ZSH_DISABLE_COMPFIX=true\n\n%s' "$(cat ~/.zshrc)" > ~/.zshrc
-        printf '\nsource %s\n\n' "$zshrc" >> ~/.zshrc
+
+        #_dotfiles_ohmyzsh_set_theme
+        #printf 'ZSH_DISABLE_COMPFIX=true\n\n%s' "$(cat ~/.zshrc)" > ~/.zshrc
+        #printf '\nsource %s\n\n' "$zshrc" >> ~/.zshrc
+
+        _dotfiles_link_item "$zshrc" "$HOME/.zshrc"
 
         return $xc
     else
