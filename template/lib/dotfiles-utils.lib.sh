@@ -142,6 +142,27 @@ for $(whoami):
 EOF
 }
 
+
+dotfiles_edit_common_template () {
+    nvim ~/dotfiles/template/lib/common.lib.sh  && \
+        dotfiles_overwrite_local_from_template
+}
+
+dotfiles_edit_shell_template () {
+    nvim ~/dotfiles/template/lib/common-$(basename $SHELL).lib.sh  && \
+        dotfiles_overwrite_local_from_template
+}
+
+dotfiles_edit_platform_template () {
+    nvim ~/dotfiles/template/lib/$(uname).lib.sh && \
+        dotfiles_overwrite_local_from_template
+}
+
+dotfiles_edit_dotfiles_template () {
+    nvim ~/dotfiles/template/lib/dotfiles-utils.lib.sh && \
+        dotfiles_overwrite_local_from_template
+}
+
 _dotfiles_ohmyzsh_set_theme () {
     local theme="${1:-powerlevel9k}"
     local regex='s/^#?(ZSH_THEME=).*/\1\"'

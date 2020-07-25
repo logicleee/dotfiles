@@ -139,3 +139,5 @@ spotlight_sudo_stop_indexing_dir () {
 }
 
 spotlight_restart () { killall mds ; }
+
+vnc () { open vnc "$1" ; }
