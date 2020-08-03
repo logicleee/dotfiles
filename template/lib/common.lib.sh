@@ -141,3 +141,19 @@ log_folder_size () {
     du -sh ~/Dropbox/MUSIC/ ~/Dropbox/Pictures/ >> "$logfile"
     less +G "$logfile"
 }
+
+git_archive_this () {
+    local PROJ=$(basename $(pwd))
+    local output_path=~/Dropbox/git-archive
+    [ ! -d $output_path ] && mkdir -pv "$output_path"
+    local output_file
+    date
+    for BRANCH in 'master' 'develop'
+    do
+        output_file="$output_path/${PROJ}-${BRANCH}".tar.gz
+        git archive --format=tar.gz          \
+            -o "$output_file"                \
+            --prefix="${PROJ}/" $BRANCH
+        ls -al "$output_file"
+    done
+}
