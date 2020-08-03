@@ -141,3 +141,10 @@ spotlight_sudo_stop_indexing_dir () {
 spotlight_restart () { killall mds ; }
 
 vnc () { open vnc://"$1" ; }
+
+vmware_vmnet_clear () {
+	mv -v /Library/Preferences/VMware\ Fusion/vmnet8/nat.conf \
+		~/.Trash/nat.conf.$(date +%Y%m%d%H%M%S)
+	mv -v /Library/Preferences/VMware\ Fusion/networking \
+		~/.Trash/networking.$(date +%Y%m%d%H%M%S)
+}
