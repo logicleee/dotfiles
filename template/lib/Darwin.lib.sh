@@ -155,18 +155,19 @@ defaults_find () {
     local after_file="${HOME}/.defaults-log/${YmdHMS}-defaults-after.json"
     local path_working="$(dirname $before_file)"
     local path_a
-    # setup the 
+    # setup the path
     if [ ! -d  $path_working ]
     then
         [ -d ~/Dropbox ]  && path_a="$HOME/Dropbox/config/defaults-log"
         [ ! -d ~/Dropbox ]  && path_a="$path_working"
         [ ! -d "$path_a" ] && mkdir -pv "$path_a"
-        [ ! -d "$path_a" ] && ln -sv "$path_a" "$path_working"
+        [ ! -e "$path_working" ] && ln -sv "$path_a" "$path_working"
     fi
     
     echo "Storing current settings in $before_file"
     defaults read > ${before_file}
-    confirm "Now make the change in System Preferences.  Continue?"
+    confirm "Now make the change in System Preferences.  Continue?" || \
+        return 1
     defaults read > ${after_file}
     diff ${before_file} ${after_file}
 }
