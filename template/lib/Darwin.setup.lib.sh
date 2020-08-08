@@ -277,6 +277,8 @@ _user_prefs_scrollbars_show () {
 }
 
 _user_prefs_24_time_with_date () {
+    #sets the user-wide 24-hr time setting
+    defaults write NSGlobalDomain AppleICUForce24HourTime -int 1
     defaults write com.apple.menuextra.clock DateFormat -string 'EEE MMM d  H:mm'
 }
 

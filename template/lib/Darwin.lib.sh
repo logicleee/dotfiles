@@ -148,3 +148,25 @@ vmware_vmnet_clear () {
 	mv -v /Library/Preferences/VMware\ Fusion/networking \
 		~/.Trash/networking.$(date +%Y%m%d%H%M%S)
 }
+
+defaults_find () {
+    local YmdHMS=$(date +%Y%m%d%H%M%S)
+    local before_file="${HOME}/.defaults-log/${YmdHMS}-defaults-before.json"
+    local after_file="${HOME}/.defaults-log/${YmdHMS}-defaults-after.json"
+    local path_working="$(dirname $before_file)"
+    local path_a
+    # setup the 
+    if [ ! -d  $path_working ]
+    then
+        [ -d ~/Dropbox ]  && path_a="$HOME/Dropbox/config/defaults-log"
+        [ ! -d ~/Dropbox ]  && path_a="$path_working"
+        [ ! -d "$path_a" ] && mkdir -pv "$path_a"
+        [ ! -d "$path_a" ] && ln -sv "$path_a" "$path_working"
+    fi
+    
+    echo "Storing current settings in $before_file"
+    defaults read > ${before_file}
+    confirm "Now make the change in System Preferences.  Continue?"
+    defaults read > ${after_file}
+    diff ${before_file} ${after_file}
+}
